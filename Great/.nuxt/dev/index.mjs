@@ -669,7 +669,7 @@ const _inlineRuntimeConfig = {
       "cookieOptions": {
         "maxAge": 28800,
         "sameSite": "lax",
-        "secure": true
+        "secure": false
       },
       "clientOptions": {}
     }

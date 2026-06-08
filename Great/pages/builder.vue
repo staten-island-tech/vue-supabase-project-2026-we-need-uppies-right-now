@@ -8,7 +8,7 @@
 
     <div v-if="recipe.currentStep === 2">
       <h2>Ice level?</h2>
-      <button @click="pickIce('none')">No Ice</button>
+      <button class = "bg-amber-400" @click="pickIce('none')">No Ice</button>
       <button @click="pickIce('less')">Less Ice</button>
       <button @click="pickIce('normal')">Normal Ice</button>
       <button @click="pickIce('extra')">Extra Ice</button>

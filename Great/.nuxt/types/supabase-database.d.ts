@@ -1,1 +1,1 @@
-export * from '../../types/database.types.ts'
+export type Database = unknown

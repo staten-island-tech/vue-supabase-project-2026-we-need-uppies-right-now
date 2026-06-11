@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false
   },
-  css: ['./app/assets/css/main.css'],
+  css: ['./assets/css/main.css'],
   vite: {
     plugins: [
       tailwindcss(),

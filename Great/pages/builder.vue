@@ -1,17 +1,22 @@
 <template>
-  <div v-if="isAuthed">
-    <div v-if="recipe.currentStep === 1">
-      <h2>Hot or cold?</h2>
-      <button @click="pickTemp('hot')">Hot</button>
-      <button @click="pickTemp('cold')">Cold</button>
+  <div v-if="isAuthed" class="h-screen w-full flex flex-col items-center justify-center">
+    <div v-if="recipe.currentStep === 1" class="flex flex-col items-center text-center mb-5" >
+      <h2 class="mb-4">Hot or Cold?</h2>
+      <div class="flex gap-6">
+        <button class="neu-circle" data-icon="🔥" @click="pickTemp('hot')">Hot</button>
+        <button class="neu-circle" data-icon="🧊" @click="pickTemp('cold')">Cold</button>
+      </div>
     </div>
 
     <div v-if="recipe.currentStep === 2">
       <h2>Ice level?</h2>
-      <button class = "bg-amber-400" @click="pickIce('none')">No Ice</button>
-      <button @click="pickIce('less')">Less Ice</button>
-      <button @click="pickIce('normal')">Normal Ice</button>
-      <button @click="pickIce('extra')">Extra Ice</button>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button @click="pickIce('none')">No Ice</button>
+        <button @click="pickIce('less')">Less Ice</button>
+        <button @click="pickIce('normal')">Normal Ice</button>
+        <button @click="pickIce('extra')">Extra Ice</button>
+        <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
+      </div>
     </div>
 
     <div v-if="recipe.currentStep === 3">
@@ -25,6 +30,7 @@
         </button>
       </div>
       <button @click="recipe.currentStep = 4">Next →</button>
+      <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
 
     <div v-if="recipe.currentStep === 4">
@@ -38,6 +44,7 @@
         </button>
       </div>
       <button @click="recipe.currentStep = 5">Next →</button>
+      <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
 
     <div v-if="recipe.currentStep === 5">
@@ -51,6 +58,7 @@
         </button>
       </div>
       <button @click="recipe.currentStep = 6">Next →</button>
+      <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
 
     <div v-if="recipe.currentStep === 6">
@@ -67,6 +75,7 @@
       </div>
       <button @click="selectedFoam = null">No Foam</button>
       <button @click="confirmFoam">Confirm Foam →</button>
+      <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
 
     <div v-if="recipe.currentStep === 7">
@@ -80,6 +89,7 @@
         </button>
       </div>
       <button @click="recipe.currentStep = 8">Next →</button>
+      <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
 
     <div v-if="recipe.currentStep === 8">
@@ -99,14 +109,7 @@
       </p>
 
       <button @click="saveRecipe">Finalize Recipe</button>
-      <button
-        @click="
-          recipe.reset();
-          recipe.currentStep = 1;
-        "
-      >
-        Reset
-      </button>
+      <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
   </div>
 </template>
@@ -288,3 +291,7 @@ async function saveRecipe() {
   navigateTo("/dashboard");
 }
 </script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+</style>

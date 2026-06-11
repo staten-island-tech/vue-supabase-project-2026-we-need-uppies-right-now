@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="h-screen w-full flex flex-col items-center justify-center mb-5">
+    <img src="/heytealogo.png" alt="Hey Tea Logo">
     <h1>Who's making boba?</h1>
-
-    <input v-model="email" placeholder="Email" type="email" />
-    <input v-model="password" placeholder="Password" type="password" />
-    <input v-model="username" placeholder="Username (signup only)" />
-
+    <div class="flex flex-col gap-4 mb-8">
+      <input v-model="email" placeholder="Email" type="email" />
+      <input v-model="password" placeholder="Password" type="password" />
+      <input v-model="username" placeholder="Username (signup only)" />
+    </div>
     <button @click="login">Log In</button>
     <button @click="signup">Sign Up</button>
-
     <p v-if="errorMsg">{{ errorMsg }}</p>
   </div>
 </template>
@@ -60,3 +60,6 @@ async function signup() {
   navigateTo("/builder");
 }
 </script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+</style>

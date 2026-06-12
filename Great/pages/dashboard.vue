@@ -2,7 +2,8 @@
   <div v-if="isAuthed" class="h-screen w-full flex flex-col items-center justify-center">
     <div class="flex flex-col items-center text-center mb-5">
       <img src="/heytealogo.png" alt="Hey Tea Logo">
-        <h1>Hello, {{ username }}!</h1>
+        <h1>Great Tea, Hey Tea</h1>
+        <h2>Hello, {{ username }}!</h2>
         <button class="start-button" @click="navigateTo('/builder')">START BUILDING</button>
       <button @click="logout">Logout</button>
     </div>

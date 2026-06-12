@@ -1,7 +1,8 @@
 <template>
   <div class="h-screen w-full flex flex-col items-center justify-center mb-5">
     <img src="/heytealogo.png" alt="Hey Tea Logo">
-    <h1>Who's making boba?</h1>
+    <h1>Great Tea, Hey Tea</h1>
+    <h2>Who's making boba?</h2>
     <div class="flex flex-col gap-4 mb-8">
       <input v-model="email" placeholder="Email" type="email" />
       <input v-model="password" placeholder="Password" type="password" />

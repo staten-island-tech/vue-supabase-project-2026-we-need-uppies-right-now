@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     redirect: false,
     cookieOptions: {
       secure: false
-    }
+    },
+  },
+  css: ['@/assets/css/main.css'],
+  vite: {
+    plugins: [tailwindcss()]
   }
 })

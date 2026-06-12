@@ -1,4 +1,3 @@
-/// <reference types="@nuxt/telemetry" />
 /// <reference types="@nuxtjs/supabase" />
 /// <reference types="@nuxt/devtools" />
 /// <reference types="@nuxt/telemetry" />

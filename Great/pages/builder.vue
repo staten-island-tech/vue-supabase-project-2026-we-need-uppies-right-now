@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isAuthed" class="h-screen w-full flex flex-col items-center justify-center">
+  <div v-if="isAuthed && !isLoading" class="h-screen w-full flex flex-col items-center justify-center">
     <div v-if="recipe.currentStep === 1" class="flex flex-col items-center text-center mb-5" >
       <h2 class="mb-4">Hot or Cold?</h2>
       <div class="flex gap-6">
@@ -112,58 +112,100 @@
       <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
     </div>
   </div>
+  <div v-else-if="isLoading" class="loading-loader">
+    <p>Loading your builder workspace...</p>
+  </div>
 </template>
 
 <script setup lang="ts">
+// Define types for ingredients mapping
+interface Ingredient {
+  id: number;
+  name: string;
+  category?: string;
+  unit_behavior?: string;
+  unit_type?: string;
+}
+
 definePageMeta({
   middleware: "auth",
 });
 
 const supabase = useSupabaseClient();
 const recipe = useRecipeStore();
+
 const isAuthed = ref(false);
+const isLoading = ref(true);
+
+// Ingredient arrays converted to reactive refs instead of top-level awaits
+const teaBases = ref<Ingredient[]>([]);
+const otherBases = ref<Ingredient[]>([]);
+const addons = ref<Ingredient[]>([]);
+const foams = ref<Ingredient[]>([]);
+const powders = ref<Ingredient[]>([]);
+
+// User selection states
+const selectedTea = ref<Ingredient | null>(null);
+const selectedBases = ref<Ingredient[]>([]);
+const selectedAddons = ref<Ingredient[]>([]);
+const selectedFoam = ref<Ingredient | null>(null);
+const foamConfirmed = ref(false);
+const selectedPowders = ref<Ingredient[]>([]);
 
 onMounted(async () => {
+  // 1. Verify session explicitly before attempting any RLS data fetches
   const {
     data: { session },
   } = await supabase.auth.getSession();
   if (!session) {
-    navigateTo("/");
+    await navigateTo("/");
     return;
   }
   isAuthed.value = true;
+
+  try {
+    // 2. Run all database fetches in parallel safely inside onMounted
+    const [
+      { data: teas },
+      { data: bases },
+      { data: addonsData },
+      { data: foamsData },
+      { data: powdersData },
+    ] = await Promise.all([
+      supabase
+        .from("ingredients")
+        .select("id, name, category, unit_behavior, unit_type")
+        .eq("ingredient_type", "tea_base"),
+      supabase
+        .from("ingredients")
+        .select("id, name, category, unit_behavior, unit_type")
+        .eq("ingredient_type", "base"),
+      supabase
+        .from("ingredients")
+        .select("id, name, category, unit_behavior, unit_type")
+        .in("ingredient_type", ["addon", "addon_topping", "addon_syrup"]),
+      supabase
+        .from("ingredients")
+        .select("id, name, category, unit_behavior, unit_type")
+        .eq("ingredient_type", "foam"),
+      supabase
+        .from("ingredients")
+        .select("id, name, category, unit_behavior, unit_type")
+        .eq("ingredient_type", "powder"),
+    ]);
+
+    // 3. Populate reactive references safely
+    teaBases.value = teas ?? [];
+    otherBases.value = bases ?? [];
+    addons.value = addonsData ?? [];
+    foams.value = foamsData ?? [];
+    powders.value = powdersData ?? [];
+  } catch (err) {
+    console.error("Error fetching ingredient configurations:", err);
+  } finally {
+    isLoading.value = false;
+  }
 });
-
-const { data: teaBases } = await supabase
-  .from("ingredients")
-  .select("id, name, category, unit_behavior, unit_type")
-  .eq("ingredient_type", "tea_base");
-
-const { data: otherBases } = await supabase
-  .from("ingredients")
-  .select("id, name, category, unit_behavior, unit_type")
-  .eq("ingredient_type", "base");
-
-const { data: addons } = await supabase
-  .from("ingredients")
-  .select("id, name, category, unit_behavior, unit_type")
-  .in("ingredient_type", ["addon", "addon_topping", "addon_syrup"]);
-
-const { data: foams } = await supabase
-  .from("ingredients")
-  .select("id, name, category, unit_behavior, unit_type")
-  .eq("ingredient_type", "foam");
-const { data: powders } = await supabase
-  .from("ingredients")
-  .select("id, name, category, unit_behavior, unit_type")
-  .eq("ingredient_type", "powder");
-
-const selectedTea = ref<{ id: number; name: string } | null>(null);
-const selectedBases = ref<{ id: number; name: string }[]>([]);
-const selectedAddons = ref<{ id: number; name: string }[]>([]);
-const selectedFoam = ref<{ id: number; name: string } | null>(null);
-const foamConfirmed = ref(false);
-const selectedPowders = ref<{ id: number; name: string }[]>([]);
 
 function pickTemp(temp: "hot" | "cold") {
   recipe.setTemperature(temp);
@@ -175,7 +217,7 @@ function pickIce(level: "none" | "less" | "normal" | "extra") {
   recipe.currentStep = 3;
 }
 
-function pickTea(tea: { id: number; name: string }) {
+function pickTea(tea: Ingredient) {
   if (selectedTea.value?.id === tea.id) {
     selectedTea.value = null;
     return;
@@ -183,7 +225,7 @@ function pickTea(tea: { id: number; name: string }) {
   selectedTea.value = tea;
 }
 
-function toggleBase(base: { id: number; name: string }) {
+function toggleBase(base: Ingredient) {
   const index = selectedBases.value.findIndex((b) => b.id === base.id);
   if (index === -1) {
     selectedBases.value.push(base);
@@ -196,7 +238,7 @@ function isBaseSelected(id: number) {
   return selectedBases.value.some((b) => b.id === id);
 }
 
-function toggleAddon(addon: { id: number; name: string }) {
+function toggleAddon(addon: Ingredient) {
   const index = selectedAddons.value.findIndex((a) => a.id === addon.id);
   if (index === -1) {
     selectedAddons.value.push(addon);
@@ -213,7 +255,8 @@ function confirmFoam() {
   foamConfirmed.value = true;
   recipe.currentStep = 7;
 }
-function togglePowder(powder: { id: number; name: string }) {
+
+function togglePowder(powder: Ingredient) {
   const index = selectedPowders.value.findIndex((p) => p.id === powder.id);
   if (index === -1) {
     selectedPowders.value.push(powder);
@@ -221,16 +264,17 @@ function togglePowder(powder: { id: number; name: string }) {
     selectedPowders.value.splice(index, 1);
   }
 }
+
 function isPowderSelected(id: number) {
   return selectedPowders.value.some((p) => p.id === id);
 }
+
 async function saveRecipe() {
   const {
     data: { session },
   } = await supabase.auth.getSession();
   if (!session) return;
 
-  // Collect all selected ingredients
   const allIngredients = [
     ...(selectedTea.value
       ? [{ ...selectedTea.value, selectionType: "liquid" as const }]
@@ -252,7 +296,6 @@ async function saveRecipe() {
     })),
   ];
 
-  // Insert recipe row
   const { data: recipeRow, error: recipeError } = await supabase
     .from("recipes")
     .insert({
@@ -268,6 +311,7 @@ async function saveRecipe() {
     console.error("Recipe save failed:", recipeError.message);
     return;
   }
+
   const selections = allIngredients.map((ing, index) => ({
     recipe_id: recipeRow.id,
     ingredient_id: ing.id,
@@ -287,8 +331,9 @@ async function saveRecipe() {
     return;
   }
 
+  // Route first, then clean up the store to prevent DOM flashes or data-wipe issues during page transition
+  await navigateTo("/dashboard");
   recipe.reset();
-  navigateTo("/dashboard");
 }
 </script>
 

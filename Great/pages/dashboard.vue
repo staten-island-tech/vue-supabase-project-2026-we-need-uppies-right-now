@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isAuthed" class="h-screen w-full flex flex-col items-center justify-center">
+  <div v-if="mounted && isAuthed" class="h-screen w-full flex flex-col items-center justify-center">
     <div class="flex flex-col items-center text-center mb-5">
       <img src="/heytealogo.png" alt="Hey Tea Logo">
         <h1>Great Tea, Hey Tea</h1>
@@ -8,16 +8,21 @@
       <button @click="logout">Logout</button>
     </div>
   </div>
+  <div v-else>
+    <!-- placeholder while mounting to keep SSR/CSR consistent -->
+  </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
   middleware: "auth",
+  ssr: false, // client-only to prevent SSR/CSR hydration mismatches
 });
 
 const supabase = useSupabaseClient();
 const isAuthed = ref(false);
 const username = ref("");
+const mounted = ref(false);
 
 onMounted(async () => {
   const {
@@ -36,6 +41,9 @@ onMounted(async () => {
     .single();
 
   if (profile) username.value = profile.username;
+
+  // mark mounted after client-only checks/requests complete
+  mounted.value = true;
 });
 
 async function logout() {

@@ -145,5 +145,5 @@ export { getRouteRules } from 'nitropack/runtime/internal/route-rules';
 export { useEvent } from 'nitropack/runtime/internal/context';
 export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
-export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
-export { defineAppConfig } from '/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
+export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from 'C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
+export { defineAppConfig } from 'C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';

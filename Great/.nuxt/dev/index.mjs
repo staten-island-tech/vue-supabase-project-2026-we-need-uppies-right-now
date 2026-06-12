@@ -4,43 +4,43 @@ import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import crypto$1 from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@vue/shared/dist/shared.cjs.js';
-import viteNodeEntry_mjs from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
-import { viteNodeFetch } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/ufo/dist/index.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/nitropack/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, defineDriver, prefixStorage } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unstorage/drivers/fs.mjs';
-import fsDriver from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unstorage/drivers/fs-lite.mjs';
-import lruCache from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unstorage/drivers/lru-cache.mjs';
-import { digest, hash as hash$1 } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/h3/dist/index.mjs';
+import { escapeHtml } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@vue/shared/dist/shared.cjs.js';
+import viteNodeEntry_mjs from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
+import { viteNodeFetch } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/ufo/dist/index.mjs';
+import destr, { destr as destr$1 } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/destr/dist/index.mjs';
+import { renderToString } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/vue/server-renderer/index.mjs';
+import { klona } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/scule/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unhead/dist/server.mjs';
+import { stringify, uneval } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/devalue/index.js';
+import { isVNode, isRef, toValue } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/vue/index.mjs';
+import { createHooks } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/nitropack/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unstorage/drivers/fs.mjs';
+import file_58_47_47_47C_58_47Users_47nelso_47OneDrive_47Documents_47GitHub_47vue_45supabase_45project_452026_45we_45need_45uppies_45right_45now_47Great_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js';
+import { digest, hash as hash$1 } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/ohash/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/youch-core/build/index.js';
+import { Youch } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/errx/dist/index.js';
-import { isVNode, isRef, toValue } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/vue/index.mjs';
-import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
+import { getContext } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unctx/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/errx/dist/index.js';
+import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unhead/dist/server.mjs';
-import { renderToString } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/vue/server-renderer/index.mjs';
-import { walkResolver } from 'file:///Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/pathe/dist/index.mjs';
+import { walkResolver } from 'file://C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/unhead/dist/utils.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -91,12 +91,12 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/server","watchOptions":{"ignored":[null]}}));
-storage.mount('cache:nuxt:payload', _47Users_47selinalin_47Documents_47GitHub_47vue_45supabase_45project_452026_45we_45need_45uppies_45right_45now_47Great_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.nuxt/cache/nuxt/payload"}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/server","watchOptions":{"ignored":[null]}}));
+storage.mount('cache:nuxt:payload', file_58_47_47_47C_58_47Users_47nelso_47OneDrive_47Documents_47GitHub_47vue_45supabase_45project_452026_45we_45need_45uppies_45right_45now_47Great_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"file:///C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.nuxt/cache/nuxt/payload"}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -709,7 +709,7 @@ const _inlineRuntimeConfig = {
       "cookieOptions": {
         "maxAge": 28800,
         "sameSite": "lax",
-        "secure": true
+        "secure": false
       },
       "clientOptions": {}
     }
@@ -2113,13 +2113,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _BmiJ7pvivmOT_5owLny0RCBC7ekiBnnpGVAkTrx2oLk = (function(nitro) {
+const _GLa9co5XLWwklpTzGOAwcwYsOUuYAt0tA0AUCqUFsM = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Users/selinalin/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great";
+const rootDir = "C:/Users/nelso/OneDrive/Documents/GitHub/vue-supabase-project-2026-we-need-uppies-right-now/Great";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
@@ -2149,7 +2149,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _Vuu_b46VDwK9YnC9W_aDbqRBf2yJrbw0r2QpHlpDD5w = (nitroApp) => {
+const _9IVK1QAQ_Sy8HtFQiRqOWz1QXXT39cb8pQ4Nyhgmjk = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2225,12 +2225,27 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _BmiJ7pvivmOT_5owLny0RCBC7ekiBnnpGVAkTrx2oLk,
-_Vuu_b46VDwK9YnC9W_aDbqRBf2yJrbw0r2QpHlpDD5w,
+  _GLa9co5XLWwklpTzGOAwcwYsOUuYAt0tA0AUCqUFsM,
+_9IVK1QAQ_Sy8HtFQiRqOWz1QXXT39cb8pQ4Nyhgmjk,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"6aeec-xzWYfO/zZbK1DOMKpZulNRvR9rI\"",
+    "mtime": "2026-06-12T02:00:25.108Z",
+    "size": 437996,
+    "path": "index.mjs.map"
+  },
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1b2f6-RB5mBQ+MYnBvBgwz21Ts1xbAsXU\"",
+    "mtime": "2026-06-12T02:00:25.177Z",
+    "size": 111350,
+    "path": "index.mjs"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -2255,7 +2270,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _EI2Ns3 = eventHandler((event) => {
+const _q3TFZT = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2761,13 +2776,13 @@ async function getIslandContext(event) {
 	};
 }
 
-const _lazy_C2kzzB = () => Promise.resolve().then(function () { return renderer; });
+const _lazy_vI6HUt = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
-  { route: '', handler: _EI2Ns3, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_C2kzzB, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _q3TFZT, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_vI6HUt, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_C2kzzB, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_vI6HUt, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

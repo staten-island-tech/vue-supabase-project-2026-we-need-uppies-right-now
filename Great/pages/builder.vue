@@ -6,10 +6,13 @@
         <button class="neu-circle" data-icon="🔥" @click="pickTemp('hot')">Hot</button>
         <button class="neu-circle" data-icon="🧊" @click="pickTemp('cold')">Cold</button>
       </div>
+      <div class="cup_container">
+        <img id="cup" src="/cup.png" alt="">
+      </div>
     </div>
 
-    <div v-if="recipe.currentStep === 2">
-      <h2>Ice level?</h2>
+    <div v-if="recipe.currentStep === 2" class="flex flex-col items-center text-center mb-5">
+      <h2 class="mb-4">Ice level?</h2>
       <div class="flex flex-wrap gap-4 justify-center">
         <button @click="pickIce('none')">No Ice</button>
         <button @click="pickIce('less')">Less Ice</button>
@@ -17,10 +20,13 @@
         <button @click="pickIce('extra')">Extra Ice</button>
         <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
       </div>
+      <div class="cup_container">
+        <img id="cup" src="/cup.png" alt="">
+      </div>
     </div>
 
-    <div v-if="recipe.currentStep === 3">
-      <h2>Pick a tea base (optional, max 1)</h2>
+    <div v-if="recipe.currentStep === 3" class="flex flex-col items-center text-center mb-5">
+      <h2 class="mb-4">Pick a tea base (optional, max 1)</h2>
       <div v-for="tea in teaBases" :key="tea.id">
         <button
           @click="pickTea(tea)"
@@ -31,10 +37,14 @@
       </div>
       <button @click="recipe.currentStep = 4">Next →</button>
       <button @click="recipe.reset(), recipe.currentStep = 1"> Reset </button>
+      <div class="cup_container">
+        <img id="cup" src="/cup.png" alt="">
+        <img v-if="recipe.iceLevel === 'less'" id="less_ice" src="/less_ice.png" alt="less ice">
+      </div>
     </div>
 
     <div v-if="recipe.currentStep === 4">
-      <h2>Pick other bases (optional, pick multiple)</h2>
+      <h2 class="mb-4">Pick other bases (optional, pick multiple)</h2>
       <div v-for="base in otherBases" :key="base.id">
         <button
           @click="toggleBase(base)"
@@ -48,7 +58,7 @@
     </div>
 
     <div v-if="recipe.currentStep === 5">
-      <h2>Pick add-ons (optional, pick multiple)</h2>
+      <h2 class="mb-4">Pick add-ons (optional, pick multiple)</h2>
       <div v-for="addon in addons" :key="addon.id">
         <button
           @click="toggleAddon(addon)"
@@ -62,7 +72,7 @@
     </div>
 
     <div v-if="recipe.currentStep === 6">
-      <h2>Pick a foam (optional)</h2>
+      <h2 class="mb-4">Pick a foam (optional)</h2>
       <div v-for="foam in foams" :key="foam.id">
         <button
           @click="selectedFoam = foam"
@@ -79,7 +89,7 @@
     </div>
 
     <div v-if="recipe.currentStep === 7">
-      <h2>Pick powders (optional, pick multiple)</h2>
+      <h2 class="mb-4">Pick powders (optional, pick multiple)</h2>
       <div v-for="powder in powders" :key="powder.id">
         <button
           @click="togglePowder(powder)"
@@ -93,7 +103,7 @@
     </div>
 
     <div v-if="recipe.currentStep === 8">
-      <h2>Review your drink</h2>
+      <h2 class="mb-4">Review your drink</h2>
       <p>Temperature: {{ recipe.temperature }}</p>
       <p v-if="recipe.iceLevel">Ice: {{ recipe.iceLevel }}</p>
       <p v-if="selectedTea">Tea: {{ selectedTea.name }}</p>

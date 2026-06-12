@@ -1,10 +1,11 @@
 <template>
-  <div v-if="mounted && isAuthed">
-    <button @click="logout">Logout</button>
-
-    <div>
-      <h1>Hello, {{ username }}!</h1>
-      <button @click="navigateTo('/builder')">Start Building</button>
+  <div v-if="mounted && isAuthed" class="h-screen w-full flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center text-center mb-5">
+      <img src="/heytealogo.png" alt="Hey Tea Logo">
+        <h1>Great Tea, Hey Tea</h1>
+        <h2>Hello, {{ username }}!</h2>
+        <button class="start-button" @click="navigateTo('/builder')">START BUILDING</button>
+      <button @click="logout">Logout</button>
     </div>
   </div>
   <div v-else>
@@ -50,3 +51,7 @@ async function logout() {
   navigateTo("/");
 }
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+</style>
